@@ -4,8 +4,18 @@
 // You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
+const hre = require("hardhat");
+const tokenContractJSON = require("../artifacts/contracts/AstraDance.sol/AstraDance.json");
+require('dotenv').config()
+
+const tokenAddress = "0x1b7a747e7f2eA77BAB66841793C797b367307cea";
+const tokenABI = tokenContractJSON.abi; 
+
+
 async function main() {
-    console.log("Some prompt description here");
+  const token = await hre.ethers.getContractAt(tokenABI, tokenAddress);
+
+  console.log("Prompt: ", await token._promptDescription());
 }
 
 // We recommend this pattern to be able to use async/await everywhere

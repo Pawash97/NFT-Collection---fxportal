@@ -8,10 +8,10 @@ const hre = require("hardhat");
 const fxRootContractABI = require("../fxRootContractABI.json");
 const tokenContractJSON = require("../artifacts/contracts/AstraDance.sol/AstraDance.json");
 
-const tokenAddress = "0xf674ECAf9233081333ba84285c8b74f0e40e7Ff2"; // place your erc71 contract address here
+const tokenAddress = "0xA8c2EC94388bc766E7c994CA50530a2e02974Cc9"; // place your erc71 contract address here
 const tokenABI = tokenContractJSON.abi;
 const fxERC71RootAddress = "0xF9bc4a80464E48369303196645e876c8C7D972de";
-const walletAddress = "0xBEefDB19e5B0B50F8b0D403c89F381432035f932"; // place your public address for your wallet here
+const walletAddress = "0x516915709B29b673e02fCb4DC0234DA83B832D36"; // place your public address for your wallet here
 
 async function main() {
 

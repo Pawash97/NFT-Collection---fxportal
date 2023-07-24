@@ -8,9 +8,9 @@ const hre = require("hardhat");
 const tokenContractJSON = require("../artifacts/contracts/AstraDance.sol/AstraDance.json");
 require('dotenv').config()
 
-const tokenAddress = "0x1b7a747e7f2eA77BAB66841793C797b367307cea";
+const tokenAddress = "0xA8c2EC94388bc766E7c994CA50530a2e02974Cc9";
 const tokenABI = tokenContractJSON.abi;
-const walletAddress = "0xBEefDB19e5B0B50F8b0D403c89F381432035f932"; 
+const walletAddress = "0x516915709B29b673e02fCb4DC0234DA83B832D36"; 
 
 async function main() {
 
