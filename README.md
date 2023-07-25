@@ -1,16 +1,79 @@
-# ERC20 Goerli to Mumbai Bridge Using fxPortal
-This project demonstrates how to use the fxPortal contracts to transfer ERC20 tokens from Goerli to Mumbai.
+# ERC721 Goerli to Mumbai Bridge Using fxPortal
+This repository contains a solidity file for transfering NFTs over FXPortal Bridge from Goerli to Mumbai Testnet. Hardhat Scripts are used for deploy, mint, approve and deposit the NFTs over from Goerli to Mumbai.
 
-### Steps for Bridging
+## Functions
+### `mint`
+- A hardhar script is used for minting NFTs. In this project The NFTs are minted all at once.
 
-1. Run npm i to install dependencies
-2. Put your private key in the .env.examples file and rename to .env when finished
-3. Run npx hardhat run scipts/deploy.js --network goerli to deploy ERC20 contract
-4. Paste the newly deployed contract address in the tokenAddress variable for the other scripts
-5. Make sure to fill in your public key
-6. Run npx hardhat run scipts/mint.js --network goerli to mint tokens to your wallet
-7. Run npx hardhat run scipts/approveDeposit.js --network goerli to approve and deposit your tokens to polygon
-8. Wait 20-30ish minutes for tokens to show on polygon account
-9. Use polyscan.com to check your account for the tokens. Once they arrive, you can click on the transaction to get the contract address for polygon.
-10. Use this polygon contract address for your getBalance script's tokenAddress
-11. Run npx hardhat run scipts/getBalance.js --network mumbai to see the new polygon balance
+### `approveDeposit`
+- This hardhat script is used to approve the transfer of tokens and Deposit them on Mumbai Testnet.
+
+### `getBalance`
+- This script is used to return the balance of the wallet address specified.
+
+### `_promptDescription`
+- This function returns the prompt used to generate the images.
+
+## Steps
+
+### Install
+`npm i` -- Install the dependencies
+
+### Compile
+`npx hardhat compile` 
+
+This will compile your contract and generate the json files.
+
+### Deploy on Goerli Testnet
+
+Make sure hardhat.config.js contains url and private key for deployment.
+
+`npx hardhat run scripts/deploy.js --network goerli`
+
+This script deploys our contract on ethereum goerli testnet and generates the contract address.
+We copy the contract address.
+
+### Verify
+`npx hardhat verify your_contract_address --network goerli`
+
+This script will help you to verify and publish your contract on etherscan goerli testnet (not necessary).
+
+### Mint NFTs on Goerli Testnet
+`Note: `
+
+- The contract address and wallet address must be provided to mint.js script.
+ 
+`npx hardhat run scripts/mint.js --network goerli`
+
+This scripts mints the NFTs to your wallet address.
+
+### Approve and Deposit To Mumbai Testnet
+
+`Note:`
+
+- The contract address and wallet address must be provided to approveDeposit.js script.
+- fxERC71RootAddress mustbe provided.
+  
+`npx hardhat run scripts/approveDeposit.js --network goerli`
+
+- This Script approves and bridges our NFTs from goerli to Mumbai testnet.
+
+### getBalance of Mumbai Testnet
+
+`Note:`
+
+- The contract address of NFTs deploymnet and wallet address must be provided to getBalance.js script.
+
+`npx hardhat run scripts/getBalance.js --network mumbai`
+
+- This script fetches the balance of our wallet from mumbai testnet and display on screen.
+
+
+
+## Authors
+Pawash Kumar Singh 
+pawash97@gmail.com
+
+
+## Video Walkthrough
+https://www.loom.com/share/918e40838d434ba0a15e202f722802ce?sid=a461d414-cd55-4bfe-a721-785d9cb68ee3
