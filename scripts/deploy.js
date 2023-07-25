@@ -8,9 +8,9 @@ const hre = require("hardhat");
 
 async function main() {
 
-  const token = await hre.ethers.deployContract("AstraDance");
+  const NFT = await hre.ethers.deployContract("AstraDance");
 
-  console.log("Token address:", await token.getAddress());
+  console.log("Token address:", await NFT.getAddress());
 }
 
 // We recommend this pattern to be able to use async/await everywhere

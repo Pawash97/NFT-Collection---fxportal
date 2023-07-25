@@ -22,7 +22,7 @@ contract AstraDance is ERC721A {
     }
 
     function mint(uint256 amount) external payable onlyOwner {
-        require(amount <= 5 , "Cannot Mint more than 5 tokens");
+        require(amount <= 5 , "Cannot Mint more than 5 NFTs");
 
         _mint(msg.sender, amount);
     }

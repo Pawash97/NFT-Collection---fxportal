@@ -5,21 +5,23 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const hre = require("hardhat");
-const tokenContractJSON = require("../artifacts/contracts/AstraDance.sol/AstraDance.json");
+const NFTContractJSON = require("../artifacts/contracts/AstraDance.sol/AstraDance.json");
 require('dotenv').config()
 
-const tokenAddress = "0xA8c2EC94388bc766E7c994CA50530a2e02974Cc9";
-const tokenABI = tokenContractJSON.abi;
-const walletAddress = "0x516915709B29b673e02fCb4DC0234DA83B832D36"; 
+const NFTAddress = "0x40b09C149f873C87f436610f813A116f39c02FA9";
+const NFTABI = NFTContractJSON.abi;
+const walletAddress = "0xBEefDB19e5B0B50F8b0D403c89F381432035f932"; 
 
 async function main() {
 
-    const token = await hre.ethers.getContractAt(tokenABI, tokenAddress);
+    const NFT = await hre.ethers.getContractAt(NFTABI, NFTAddress);
   
-    const tx = await token.mint(5);
+    const tx = await NFT.mint(5);
     await tx.wait();
 
-    console.log("You now have: " + await token.balanceOf(walletAddress) + "nfts");
+    console.log("You now have: " + await NFT.balanceOf(walletAddress) + " nfts");
+
+    console.log("Prompt: ", await NFT._promptDescription());
   }
   
   // We recommend this pattern to be able to use async/await everywhere
